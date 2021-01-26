@@ -1,0 +1,88 @@
+<style>
+
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  table {
+    background: #012B39;
+    border-radius: 0.60em;
+    border-collapse: collapse;
+    margin: 1em;
+  }
+  th {
+    border-bottom: 1px solid #364043;
+    color: #E2B842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+  }
+  td {
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+  }
+  .disabled td {
+    color: #4F5F64;
+  }
+  tbody tr {
+    transition: background 0.25s ease;
+  }
+  tbody tr:hover {
+    background: #014055;
+  }
+  br {
+    display: block;
+    margin: 100px 0;
+    content: " ";
+  }
+  .button {
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+  }
+
+</style>
+
+<body>
+<h2 style="position: fixed; top: 300px; left: 60px;">⚽  League Summery (Club Status)</h2>
+<br />
+<button type="button" class="button" (click)="sort('totalLeagueGoals')">Sort by Goals</button>
+<button type="button" class="button" (click)="sort('matchesWon')">Sort by Wins</button>
+<div style="overflow-y:auto; height: 400px;">
+<table>
+  <thead>
+  <tr>
+    <th style="cursor: pointer" > Club Name </th>
+    <th style="cursor: pointer" >Matches Won</th>
+    <th style="cursor: pointer" >Matches Lost</th>
+    <th style="cursor: pointer" >Goals in League</th>
+    <th style="cursor: pointer" >Goals Difference</th>
+    <th style="cursor: pointer" >League Points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let football of iFootballs">
+    <td data-label="Club Name">{{ football.clubName }}</td>
+    <td data-label="Matches Won">{{ football.matchesWon }}</td>
+    <td data-label="Matches Lost">{{ football.matchesLost }}</td>
+    <td data-label="League Points">{{ football.totalLeagueGoals }}</td>
+    <td data-label="League Points">{{ football.goalDifference }}</td>
+    <td data-label="League Points">{{ football.leaguePoints }}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<br />
+</body>

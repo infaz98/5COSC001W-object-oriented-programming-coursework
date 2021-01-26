@@ -1,0 +1,32 @@
+<style>
+  .button {
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+  }
+
+</style>
+
+<body>
+<h2 style="position: fixed; top: 300px; left: 60px;">⚽  Add a Match to league</h2>
+<br />
+<br />
+<br />
+<h2><div *ngIf="isMatchGenerated"> {{randomMatch?.teamOne?.clubName}} Vs  {{randomMatch?.teamTwo?.clubName}}</div> </h2>
+<h3><div *ngIf="isMatchGenerated"> {{randomMatch?.teamOne?.clubName}} :  {{randomMatch?.teamOneGoals}}</div> </h3>
+<h3><div *ngIf="isMatchGenerated"> {{randomMatch?.teamTwo?.clubName}} :  {{randomMatch?.teamTwoGoals}}</div> </h3>
+<h3><div *ngIf="isMatchGenerated"> Match Date :  {{randomMatch?.matchDate?.date}}/{{randomMatch?.matchDate?.month}}/{{randomMatch?.matchDate?.year}}</div> </h3>
+
+<button class="button" type="button" (click)="random()">Generate a Match</button>
+
+</body>

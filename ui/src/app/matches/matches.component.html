@@ -1,0 +1,90 @@
+<style>
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  table {
+    overflow-y: scroll;
+    background: #012B39;
+    border-radius: 0.60em;
+    border-collapse: collapse;
+    margin: 1em;
+  }
+  th {
+    border-bottom: 1px solid #364043;
+    color: #E2B842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+  }
+  td {
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+  }
+  .disabled td {
+    color: #4F5F64;
+  }
+  tbody tr {
+    transition: background 0.25s ease;
+  }
+  tbody tr:hover {
+    background: #014055;
+  }
+  br {
+    display: block;
+    margin: 80px 0;
+    content: " ";
+  }
+
+  .button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+  }
+
+</style>
+
+<body>
+<br>
+<br>
+<h2 style="position: fixed; top: 300px; left: 60px;">⚽  Match Summery</h2>
+<input  style="width:160px; height: 30px; border-radius: 10px" type="date" #matchQ placeholder="Search Match Information" />
+<button class="button" (click)="search(matchQ.value)">Search</button>
+<button class="button" (click)="ngOnInit()">Clear</button>
+<br>
+<div style="overflow-y:auto; height: 400px;">
+<table>
+  <thead>
+  <tr>
+    <th (click)="sort(matchDay.month)">Match Date</th>
+    <th >Team One</th>
+    <th >Team Two</th>
+    <th >Team One Goals</th>
+    <th >Team Two Goals</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let match of iMatches">
+    <td data-label="Team One">{{ match.matchDate.date}}/{{ match.matchDate.month}}/{{ match.matchDate.year}}</td>
+    <td data-label="Team One">{{ match.teamOne.clubName}}</td>
+    <td data-label="Team Two">{{ match.teamTwo.clubName }}</td>
+    <td data-label="Team One Goals">{{ match.teamOneGoals }}</td>
+    <td data-label="Team Two Goals">{{ match.teamTwoGoals}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<br />
+</body>
