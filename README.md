@@ -22,7 +22,7 @@ To run the project
 <li>enter 'sbt run' command to run the project</li>
 </ol>  
 
-GUI and CLI preview of the application:
+GUI preview of the application:
 
 ![alt text](https://user-images.githubusercontent.com/73607341/105796309-972d1c00-5fb4-11eb-9473-10cdff76f772.PNG)
 
